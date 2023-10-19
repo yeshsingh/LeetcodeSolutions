@@ -2,6 +2,7 @@ class Solution {
     int solve(int i,string s,vector<int>& dp)
     { 
         if(s[i]=='0') return 0;
+        if(i==s.size()) return 1;
         if(dp[i]!=-1) return dp[i];
         
         int res = solve(i+1,s,dp);
