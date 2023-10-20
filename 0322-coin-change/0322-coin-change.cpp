@@ -17,17 +17,14 @@ class Solution {
         {
             return dp[i][amount];
         }
-        if(amount<coins[i])
-        { 
         int take2=ans(i+1,coins,amount);
-        dp[i][amount]=(take2);
-        }
-        else 
+        int take1=INT_MAX;
+        if(amount>=coins[i])
         {
-            int take1=1+ans(i,coins,amount-coins[i]);
-            int take2=ans(i+1,coins,amount);
-            dp[i][amount]=min({take2,take1});
+            take1=1+ans(i,coins,amount-coins[i]);
+            
         }
+        dp[i][amount]=min({take2,take1});
         return dp[i][amount];
     }
 public:
