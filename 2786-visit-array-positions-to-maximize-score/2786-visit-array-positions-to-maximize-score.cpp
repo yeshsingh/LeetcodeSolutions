@@ -1,5 +1,5 @@
 class Solution {
-    long long  dp[100005][2];
+    vector<vector<long long>> dp;
     long long ans(int i,int x,vector<int>& nums,int c)
     { 
        
@@ -19,11 +19,11 @@ class Solution {
         a2-=x;
     }
    
-    return dp[i][c]=max(a1,a2);
+    return dp[i][c]=max({a1,a2});
     }
 public:
     long long maxScore(vector<int>& nums, int x) {
-        memset(dp, -1, sizeof(dp));
+        dp.resize(nums.size()+1, vector<long long>(2, -1));
         return nums[0]+ans(1,x,nums,1&nums[0]);
     }
 };
