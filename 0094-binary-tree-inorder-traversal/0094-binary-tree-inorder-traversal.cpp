@@ -25,7 +25,7 @@ public:
             }
             else 
             {
-                if(ans.empty()==true) break;
+                if(ans.empty()==true) return inorder;
                 node=ans.top();
                 ans.pop();
                 inorder.push_back(node->val);
